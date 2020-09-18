@@ -7,10 +7,11 @@
 <script>
   export default {
     name: 'App'
-  }
+  };
 </script>
 
 <style>
+@import "./assets/preferences/pref.css";
 body {
   height: 100vh;
   margin: 0;

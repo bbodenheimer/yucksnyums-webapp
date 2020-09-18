@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "pref";
+    src: url("./pref.eot?c540363bcf986f846fe26caaae48eb78?#iefix") format("embedded-opentype"),
+url("./pref.woff2?c540363bcf986f846fe26caaae48eb78") format("woff2"),
+url("./pref.woff?c540363bcf986f846fe26caaae48eb78") format("woff"),
+url("./pref.ttf?c540363bcf986f846fe26caaae48eb78") format("truetype"),
+url("./pref.svg?c540363bcf986f846fe26caaae48eb78#pref") format("svg");
+}
+
+i[class^="pref-"]:before, i[class*=" pref-"]:before {
+    font-family: pref !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pref-allergic:before {
+    content: "\f101";
+}
+.pref-dislike:before {
+    content: "\f102";
+}
+.pref-hate:before {
+    content: "\f103";
+}
+.pref-like:before {
+    content: "\f104";
+}
+.pref-love:before {
+    content: "\f105";
+}
+.pref-neutral:before {
+    content: "\f106";
+}

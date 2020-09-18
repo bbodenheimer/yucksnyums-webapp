@@ -2,58 +2,29 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import client from '../client';
 
+import Foods from './modules/foods';
+import InternalTools from './modules/internalTools';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    Foods,
+    InternalTools
+  },
   state: {
-    allCategories: null
+    allCategories: null,
+    allPreferences: null
   },
   mutations: {
     updateAllCategories(state, payload) {
       state.allCategories = payload;
+    },
+    updateAllPreferences(state, payload) {
+      state.allPreferences = payload;
     }
   },
   actions: {
-    addNewCategory({}, data) {
-      return client({
-        method: 'post',
-        url: '/tools/addCategory',
-        data: data
-      })
-      /** displays duplicate error message */
-        .then((response) => {
-          return response;
-        })
-        .catch((err) => {
-          return err.response;
-        })
-    },
-    addNewFood({}, data) {
-      return client({
-        method: 'post',
-        url: '/tools/addFood',
-        data
-      })
-      .then((response) => {
-        return response;
-      })
-      .catch((err) => {
-        return err.response;
-      })
-    },
-    addNewPreference({}, data) {
-      return client({
-        method: 'post',
-        url: '/tools/addPreference',
-        data: data
-      })
-      .then((response) => {
-        return response 
-      })
-      .catch((err) => {
-        return err.response;
-      })
-    },
     getAllCategories({commit}) {
       return client({
         method: 'get',
@@ -61,7 +32,17 @@ export default new Vuex.Store({
       })
         .then((r) => r.data)
         .then((response) => {
-          commit('updateAllCategories', response)
+          commit('updateAllCategories', response);
+        });
+    },
+    getAllPreferences({commit}) {
+      return client({
+        method: 'get',
+        url: '/tools/getAllPreferences'
+      })
+        .then((r) => r.data)
+        .then((response) => {
+          commit('updateAllPreferences', response);
         });
     }
   }

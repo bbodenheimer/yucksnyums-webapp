@@ -1,17 +1,28 @@
 <template>
   <select v-model="selected" class="dropdown">
-    <option value="-1" disabled selected>Category</option>
-    <option v-for="option in options" :key="option.id" :value="option.id">{{ option.description }}</option>
+    <option value="-1" disabled selected>Preference</option>
+    <option v-for="pref in getAllPreferences" :key="pref.index" :pref="pref">
+    </option>
   </select>
 </template>
 
 <script>
+  import {mapState} from 'vuex';
   export default {
     name: 'DropdownSelector',
     data() {
       return {
-        selected: -1
-      }
+        selected: -1,
+        pref: null
+      };
+    },
+    computed: {
+      ...mapState([
+        'allCategories'
+      ])
+    },
+    created() {
+      this.$store.dispatch('getAllPreferences');
     },
     props: {
       options: {
@@ -21,10 +32,10 @@
     },
     watch: {
       selected(newValue) {
-        this.$emit('input', newValue)
+        this.$emit('input', newValue);
       }
-    },
-  }
+    }
+  };
 </script>
 
 <style scoped>

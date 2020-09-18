@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  import CreateCategory from '../organisms/CreateCategory'
+  import CreateCategory from '../organisms/CreateCategory';
   import CreateFood from '../organisms/CreateFood';
   import CreatePreference from '../organisms/CreatePreference';
-  
+
   export default {
     name: 'InternalTools',
     components: {
@@ -24,12 +24,12 @@
         food: null,
         category: null,
         preference: null
-      }
+      };
     },
     created() {
       this.$store.dispatch('getAllCategories');
-    }    
-  }
+    }
+  };
 </script>
 
 <style>

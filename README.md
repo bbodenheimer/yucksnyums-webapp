@@ -10,6 +10,11 @@ npm install
 npm run serve
 ```
 
+## Generating Icons
+```
+icon-font-generator src/assets/icons/svg/*.svg -o src/assets/preferences -n pref -p pref -j false
+``
+
 ### Compiles and minifies for production
 ```
 npm run build

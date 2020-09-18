@@ -16,10 +16,10 @@
 
   export default {
     name: 'CreateCategory',
-   components: {
-     InfoMessage,
-     SliderBox,
-     TextInput
+    components: {
+      InfoMessage,
+      SliderBox,
+      TextInput
     },
     data() {
       return {
@@ -27,38 +27,38 @@
         newCategory: false,
         error: false,
         success: false
-      }
+      };
     },
     methods: {
       addCategory() {
         this.$store.dispatch('addNewCategory', {description: this.categoryName})
           .then((response) => {
             console.dir(response);
-           if(response.status == 500) {
-          this.error = response.data.message;
-            setTimeout(() => {
-            this.error = false;
-          }, 3000)
-        } else if (response.status !== 200) {
-          this.error = response.data.message;
-          setTimeout(() => {
-            this.error = false;
-          }, 3000)
-        } else {
-          this.success = "Success!";
-          setTimeout(() => {
-            this.success = false;
-          }, 3000)
-        }
-      });
-    }
-  },
+            if (response.status === 500) {
+              this.error = response.data.message;
+              setTimeout(() => {
+                this.error = false;
+              }, 3000);
+            } else if (response.status !== 200) {
+              this.error = response.data.message;
+              setTimeout(() => {
+                this.error = false;
+              }, 3000);
+            } else {
+              this.success = 'Success!';
+              setTimeout(() => {
+                this.success = false;
+              }, 3000);
+            }
+          });
+      }
+    },
     computed: {
       ...mapState([
         'allCategories'
       ])
-    },
-  }
+    }
+  };
 
 </script>
 

@@ -1,4 +1,4 @@
-# webapp
+# Yucks N Yums webapp
 
 ## Project setup
 ```
